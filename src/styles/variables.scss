@@ -1,0 +1,28 @@
+// 颜色变量
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+$info-color: #909399;
+
+// 渐变色
+$gradient-primary: linear-gradient(135deg, #{$primary-color} 0%, #{$secondary-color} 100%);
+$gradient-pink: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$gradient-orange: linear-gradient(135deg, #ff6b6b, #ee5a24);
+
+// 尺寸变量
+$sidebar-width: 250px;
+$sidebar-collapsed-width: 70px;
+$header-height: 60px;
+
+// 阴影
+$shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.08);
+$shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+// 边框圆角
+$radius-small: 4px;
+$radius-medium: 8px;
+$radius-large: 15px;
+$radius-xl: 20px;
