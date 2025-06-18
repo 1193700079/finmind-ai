@@ -1,13 +1,13 @@
 <template>
     <div class="sidebar" :class="{ collapsed: isCollapsed }">
         <div class="sidebar-header">
-            <div class="logo">💰 AI记账</div>
+            <div class="logo">💰 MoneyMind AI</div>
             <div class="tagline" v-show="!isCollapsed">智能理财助手</div>
         </div>
 
         <nav class="sidebar-nav">
             <router-link v-for="route in menuRoutes" :key="route.path" :to="route.path" class="menu-item"
-                active-class="active">
+                active-class="active" @click="handleMenuClick">
                 <el-icon class="menu-icon">
                     <component :is="route.meta?.icon" />
                 </el-icon>
@@ -15,7 +15,7 @@
             </router-link>
         </nav>
 
-        <div class="sidebar-footer">
+        <div class="sidebar-footer" v-if="!isMobile">
             <el-button @click="toggleCollapse" circle size="small" class="collapse-btn">
                 <el-icon>
                     <Fold v-if="!isCollapsed" />
@@ -27,12 +27,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { Fold, Expand } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const isCollapsed = ref(false)
+const isMobile = inject('isMobile', ref(false))
+
+// 注入关闭移动端菜单的方法
+const closeMobileMenu = inject('closeMobileMenu', () => { })
 
 const menuRoutes = computed(() => {
     return router.getRoutes()
@@ -42,6 +46,12 @@ const menuRoutes = computed(() => {
 
 const toggleCollapse = () => {
     isCollapsed.value = !isCollapsed.value
+}
+
+const handleMenuClick = () => {
+    if (isMobile.value) {
+        closeMobileMenu()
+    }
 }
 </script>
 
@@ -54,6 +64,7 @@ const toggleCollapse = () => {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     &.collapsed {
         width: 70px;
@@ -68,13 +79,17 @@ const toggleCollapse = () => {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 5px;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
 }
 
 .tagline {
-    font-size: 12px;
+    font-size: 11px;
     opacity: 0.9;
     transition: opacity 0.3s ease;
 }
@@ -82,6 +97,7 @@ const toggleCollapse = () => {
 .sidebar-nav {
     flex: 1;
     padding-top: 20px;
+    overflow-y: auto;
 }
 
 .menu-item {
@@ -105,12 +121,21 @@ const toggleCollapse = () => {
         color: white;
         font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+        padding: 18px 20px;
+        font-size: 16px;
+    }
 }
 
 .menu-icon {
-    font-size: 20px;
-    margin-right: 10px;
-    min-width: 20px;
+    font-size: 18px;
+    margin-right: 12px;
+    min-width: 18px;
+
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
 }
 
 .menu-text {
@@ -127,16 +152,4 @@ const toggleCollapse = () => {
     border: none;
     color: white;
 }
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 70px;
-
-        .menu-text,
-        .tagline {
-            display: none;
-        }
-    }
-}
 </style>
-  

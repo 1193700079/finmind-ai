@@ -12,6 +12,7 @@ body {
   min-height: 100vh;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; // 防止横向滚动
 }
 
 // 页面容器样式
@@ -25,6 +26,14 @@ body {
   min-height: calc(100vh - 40px);
   overflow: hidden;
   animation: slideIn 0.5s ease-out;
+
+  // 移动端优化
+  @media (max-width: 768px) {
+    margin: 0;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 @keyframes slideIn {
@@ -40,6 +49,111 @@ body {
 
 .page-content {
   padding: 30px;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+}
+
+// 移动端页面头部优化
+.page-header {
+  padding: 30px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+    border-radius: 0;
+
+    .page-title {
+      font-size: 22px !important;
+    }
+
+    .page-subtitle {
+      font-size: 12px !important;
+    }
+  }
+}
+
+// 响应式网格优化
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+// 表格移动端优化
+.el-table {
+  @media (max-width: 768px) {
+    font-size: 12px;
+
+    .el-table__cell {
+      padding: 8px 5px;
+    }
+  }
+}
+
+// 卡片移动端优化
+.el-card {
+  border: none;
+  box-shadow: $shadow-medium;
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+
+  .el-card__header {
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
+  }
+
+  .el-card__body {
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
+  }
+}
+
+// 按钮移动端优化
+.el-button {
+  @media (max-width: 768px) {
+    &.el-button--large {
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+// 表单移动端优化
+.el-form {
+  @media (max-width: 768px) {
+    .el-form-item__label {
+      font-size: 14px;
+    }
+    
+    .el-input, .el-select {
+      width: 100% !important;
+    }
+  }
 }
 
 // 滚动条样式
@@ -60,47 +174,6 @@ body {
   &:hover {
     background: #a8a8a8;
   }
-}
-
-// 响应式设计
-@media (max-width: 768px) {
-  .page-container {
-    margin: 10px;
-    min-height: calc(100vh - 20px);
-    border-radius: $radius-large;
-  }
-  
-  .page-content {
-    padding: 20px;
-  }
-}
-
-// Element Plus 自定义样式
-.el-card {
-  border: none;
-  box-shadow: $shadow-medium;
-  
-  .el-card__header {
-    border-bottom: 1px solid #f0f0f0;
-    background: #fafafa;
-  }
-}
-
-.el-button--primary {
-  background: $gradient-primary;
-  border: none;
-  
-  &:hover {
-    opacity: 0.9;
-  }
-}
-
-.el-progress-bar__outer {
-  border-radius: 6px;
-}
-
-.el-progress-bar__inner {
-  border-radius: 6px;
 }
 
 // 工具类
@@ -134,3 +207,17 @@ body {
 
 .w-full { width: 100%; }
 .h-full { height: 100%; }
+
+// 移动端隐藏类
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+// 桌面端隐藏类
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
