@@ -40,9 +40,15 @@
           <div class="ios-card">
             <div class="card-header">
               <h3 class="card-title">最近交易</h3>
-              <button class="card-action" @click="$router.push('/dashboard')">
+              <!-- <button class="card-action" @click="$router.push('/dashboard')">
                 查看全部
-              </button>
+              </button> -->
+                  <AnimatedButton 
+          text="查看全部" 
+          icon="💰" 
+          variant="primary"
+          @click="$router.push('/dashboard')"
+        />
             </div>
             <div class="transaction-list">
               <div 

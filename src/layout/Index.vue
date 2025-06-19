@@ -1,5 +1,6 @@
+
 <template>
-    <div class="ios-layout">
+  <div class="ios-layout">
       <!-- iOS 风格顶部状态栏 (移动端) -->
       <div class="ios-status-bar" v-if="isMobile">
         <div class="status-indicators">

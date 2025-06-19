@@ -1,3 +1,13 @@
+<!--
+ * @Author: yangruiqing “yrq991121@gmail.com”
+ * @Date: 2025-06-19 01:33:04
+ * @LastEditors: yangruiqing “yrq991121@gmail.com”
+ * @LastEditTime: 2025-06-19 20:18:47
+ * @FilePath: /finmind-ai/src/components/PageHeader.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
+-->
 <template>
     <div class="page-header">
         <div class="page-title">{{ title }}</div>
@@ -11,6 +21,7 @@ interface Props {
     title: string
     subtitle?: string
 }
+
 
 defineProps<Props>()
 </script>

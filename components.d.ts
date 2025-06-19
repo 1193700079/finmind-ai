@@ -7,6 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AnimatedButton: typeof import('./src/components/AnimatedButton.vue')['default']
+    AnimatedCard: typeof import('./src/components/AnimatedCard.vue')['default']
+    AnimatedInput: typeof import('./src/components/AnimatedInput.vue')['default']
+    AnimatedProgress: typeof import('./src/components/AnimatedProgress.vue')['default']
     ChartContainer: typeof import('./src/components/ChartContainer.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -35,6 +39,7 @@ declare module 'vue' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
     ElUpload: typeof import('element-plus/es')['ElUpload']
+    FloatingActionButton: typeof import('./src/components/FloatingActionButton.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -1,13 +1,14 @@
 <!--
- * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2025-06-19 01:13:55
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2025-06-19 01:14:07
+ * @Author: yangruiqing “yrq991121@gmail.com”
+ * @Date: 2025-06-19 01:33:04
+ * @LastEditors: yangruiqing “yrq991121@gmail.com”
+ * @LastEditTime: 2025-06-19 20:18:57
  * @FilePath: /finmind-ai/src/components/ChartContainer.vue
  * @Description: 
  * 
  * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
 -->
+
 <template>
     <div class="chart-container">
         <h3 v-if="title" class="chart-title">{{ title }}</h3>

@@ -1,13 +1,15 @@
 <!--
- * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2025-06-19 01:09:34
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2025-06-19 01:09:43
+ * @Author: yangruiqing “yrq991121@gmail.com”
+ * @Date: 2025-06-19 01:33:04
+ * @LastEditors: yangruiqing “yrq991121@gmail.com”
+ * @LastEditTime: 2025-06-19 20:19:56
  * @FilePath: /finmind-ai/src/layout/components/FloatingButton.vue
  * @Description: 
  * 
  * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
 -->
+
+
 <template>
     <el-button v-if="showFloatingButton" class="floating-btn" type="primary" circle size="large" @click="goToChat">
         <el-icon size="24">
